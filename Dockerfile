@@ -11,7 +11,7 @@ COPY . .
 
 RUN pnpm build
 
-FROM node:20-alpine as runner
+FROM node:20-alpine AS runner
 
 ENV NODE_ENV=production
 ENV PORT=3050
