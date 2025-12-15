@@ -7,14 +7,12 @@
             <div class="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
                <div>
                   <p class="mb-6 text-sm font-semibold text-emerald-500">
-                     Insight Count
+                     Insight
                   </p>
                   <h3
                      class="mb-8 text-5xl leading-tight font-bold md:text-6xl lg:text-7xl"
                   >
-                     Trusted by Thousands,
-                     <span class="text-4xl md:text-5xl lg:text-6xl">🧠</span>
-                     Delivering Excellence in Healthcare.
+                     Trusted by Thousands, Delivering Excellence in Healthcare.
                   </h3>
                </div>
 

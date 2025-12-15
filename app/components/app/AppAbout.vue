@@ -7,32 +7,10 @@
             <h2
                class="text-4xl leading-tight font-light md:text-5xl lg:text-6xl"
             >
-               <span class="text-gray-400">Clever is dedicated to</span>
-               <span class="font-medium text-gray-900"> transforming</span>
-               the
-               <span class="font-semibold text-emerald-500"
-                  >medical landscape</span
-               >
-               <span class="text-3xl md:text-4xl">🧠</span>
-
-               <span class="text-gray-900"
-                  >with cutting-edge artificial intelligence.</span
-               >
-
-               <span class="text-gray-900">Our mission is to provide</span>
-
-               <span class="text-gray-400"
-                  >accessible, reliable, and intelligent</span
-               >
-
-               <span class="text-gray-900"
-                  >healthcare solutions that cater to</span
-               >
-
-               <span class="font-semibold text-emerald-500"
-                  >individual needs</span
-               >
-               <span class="ml-2 text-3xl md:text-4xl">🌀</span>
+               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+               Cupiditate, quis iure! Maiores nostrum dolorum iure blanditiis
+               quibusdam est soluta sit deleniti commodi alias eligendi
+               accusantium libero sint, ex enim necessitatibus.
             </h2>
          </div>
       </div>

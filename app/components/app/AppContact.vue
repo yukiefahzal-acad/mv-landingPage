@@ -2,15 +2,11 @@
 
 <template>
    <section
-      class="relative overflow-hidden bg-linear-to-br from-emerald-50 via-white to-emerald-50 py-32"
+      class="relative overflow-hidden bg-linear-to-br from-white from-30% to-sky-50 py-32"
    >
       <div
-         class="absolute top-0 right-0 h-96 w-96 rounded-full bg-linear-to-br from-emerald-200 to-transparent opacity-30 blur-3xl"
+         class="absolute top-0 left-0 h-96 w-96 rounded-full bg-linear-to-br from-sky-200 to-transparent opacity-30 blur-xl"
       ></div>
-      <div
-         class="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-linear-to-tr from-emerald-200 to-transparent opacity-30 blur-3xl"
-      ></div>
-
       <div class="relative z-10 container mx-auto px-6">
          <div class="mx-auto max-w-4xl text-center">
             <p
@@ -46,13 +42,16 @@
                      class="flex items-center gap-2 rounded-full bg-linear-to-r from-emerald-400 to-emerald-500 px-8 py-4 font-semibold whitespace-nowrap text-white shadow-lg transition hover:from-emerald-500 hover:to-emerald-600 hover:shadow-xl"
                   >
                      Submit
-                     <ArrowRight class="h-5 w-5" />
+                     <Icon
+                        name="lucide:arrow-right"
+                        class="-me-2 size-5!"
+                     />
                   </button>
                </div>
             </div>
 
             <p class="mt-8 text-sm text-emerald-500">
-               More info, contact{' '}
+               More info, contact
                <a
                   href="mailto:support@clever.com"
                   class="font-semibold hover:underline"

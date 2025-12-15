@@ -130,7 +130,7 @@
                      <div
                         class="relative z-10 flex h-full items-center justify-center"
                      >
-                        <div class="grid w-full grid-cols-2 gap-6">
+                        <div class="grid w-full md:grid-cols-2 gap-6">
                            <div
                               class="transform rounded-2xl bg-white p-6 shadow-xl transition hover:scale-105"
                            >

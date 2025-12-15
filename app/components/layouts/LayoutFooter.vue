@@ -2,7 +2,7 @@
 
 <template>
    <footer class="bg-gray-900 pt-16 pb-8 text-white">
-      <div class="container mx-auto px-6 pb-8 border-b border-gray-800">
+      <div class="container mx-auto border-b border-gray-800 px-6 pb-8">
          <div class="mx-auto max-w-7xl">
             <div class="mb-12">
                <p class="mb-8 text-center text-gray-400 md:text-left">
@@ -11,7 +11,7 @@
                </p>
 
                <h3
-                  class="mb-12 text-center text-6xl leading-tight font-bold md:text-left md:text-7xl lg:text-8xl"
+                  class="mb-12 text-center text-6xl leading-tight font-bold tracking-wider md:text-left md:text-7xl lg:text-8xl"
                >
                   START CLEVER
                </h3>
@@ -24,19 +24,28 @@
                         href="#"
                         class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-gray-900 transition hover:bg-emerald-500 hover:text-white"
                      >
-                        <Facebook class="h-5 w-5" />
+                        <Icon
+                           name="lucide:facebook"
+                           class="size-5!"
+                        />
                      </a>
                      <a
                         href="#"
                         class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-gray-900 transition hover:bg-emerald-500 hover:text-white"
                      >
-                        <X class="h-5 w-5" />
+                        <Icon
+                           name="lucide:twitter"
+                           class="size-5!"
+                        />
                      </a>
                      <a
                         href="#"
                         class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-gray-900 transition hover:bg-emerald-500 hover:text-white"
                      >
-                        <Instagram class="h-5 w-5" />
+                        <Icon
+                           name="lucide:instagram"
+                           class="size-5!"
+                        />
                      </a>
                   </div>
                </div>
@@ -61,10 +70,9 @@
          </div>
       </div>
       <div
-         class="container mx-auto max-w-7xl pt-8 flex flex-col items-center justify-between md:flex-row"
+         class="container mx-auto flex max-w-7xl flex-col items-center justify-between pt-8 md:flex-row"
       >
          <p class="mb-4 text-sm text-gray-400 md:mb-0">&copy; 2025 Clever</p>
-         <p class="text-sm text-gray-400">Designed by Plainthing Studio</p>
       </div>
    </footer>
 </template>
