@@ -1,0 +1,17 @@
+{
+    "tabWidth": 3,
+    "useTabs": false,
+    "bracketSameLine": false,
+    "endOfLine": "lf",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "experimentalTernaries": false,
+    "experimentalOperatorPosition": "start",
+    "singleAttributePerLine": true,
+    "semi": false,
+    "trailingComma": "es5",
+    "singleQuote": false,
+    "objectWrap": "preserve",
+    "printWidth": 80,
+    "plugins": ["prettier-plugin-tailwindcss"]
+}
