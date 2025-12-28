@@ -6,11 +6,16 @@ export default defineNuxtConfig({
    compatibilityDate: "2025-07-15",
    devtools: { enabled: true },
    modules: [
-      "@nuxt/fonts", 
-      "@nuxt/icon", 
+      "@nuxt/fonts",
+      "@nuxt/icon",
       "@nuxt/image",
-      "@nuxtjs/seo"
+      "@nuxt/ui",
+      "@nuxtjs/seo",
+      // "v-gsap-nuxt",
+      '@nuxtjs/i18n',
+      '@hypernym/nuxt-gsap'
    ],
+
    runtimeConfig: {
       public: {
          siteUrl: import.meta.env.APP_URL,
@@ -18,6 +23,7 @@ export default defineNuxtConfig({
          siteDescription: 'Your engaging landing page description',
       }
    },
+
    app: {
       head: {
          title: 'MedicVerse',
@@ -43,6 +49,7 @@ export default defineNuxtConfig({
          ]
       }
    },
+   
    // SEO Module Configuration
    sitemap: {
       sources: ["/api/__sitemap__/urls"],
@@ -62,5 +69,21 @@ export default defineNuxtConfig({
             pathPrefix: false
          }
       ]
+   },
+
+   //i18n module configuration
+   i18n: {
+      locales: [
+         { code: 'en', language: 'en-US' },
+         { code: 'id', language: 'id-ID' }
+      ],
+      defaultLocale: 'en',
+   },
+
+   gsap: {
+      extraPlugins: {
+         scrollTrigger: true
+      }
    }
+
 })

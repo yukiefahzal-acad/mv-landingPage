@@ -2,6 +2,7 @@
 
 <template>
    <section
+      id="contact"
       class="relative overflow-hidden bg-linear-to-br from-white from-30% to-sky-50 py-32"
    >
       <div

@@ -1,75 +1,72 @@
 <script setup lang="ts">
 const plans = [
    {
-      title: "Basic Plan",
-      price: 12,
+      title: "Scout Class",
+      price: 250000,
       highlight: false,
+      icon: 'lucide:rocket',
+      cta: { text: 'Pilih Paket', variant: 'outline' },
       benefits: [
-         "Access AI-Driven symptom checker",
-         "Health tips and general wellness advice",
-         "Basic health tracking",
+         "Pendaftaran & Antrean Pasien",
+         "RME Dasar (SOAP, Diagnosa ICD-10, TTV)",
+         "Resep Elektronik & Cetak Etiket",
+         "Kasir & Kwitansi Sederhana"
       ],
    },
    {
-      title: "Essential Plan",
-      price: 20,
+      title: "Explorer Class",
+      price: 300000,
       highlight: true,
+      icon: 'lucide:compass',
+      cta: { text: 'Pilih Paket', variant: 'primary' },
       benefits: [
-         "All features of the Basic Plan",
-         "Virtual consultations with healthcare professionals",
-         "Personalized health insights and recommendations",
-         "Appointment scheduling",
-         "Medication reminders",
+         "Modul Scout",
+         "Bridging SATU SEHAT & BPJS",
+         "Gudang Farmasi",
+         "Penunjang",
+         "Medical Check Up (MCU)",
+         "Fitur Klinis Lanjutan",
+         "Laporan Profit & Bisnis Real-Time",
+         "Prioritas Support Teknis"
       ],
    },
    {
-      title: "Ultimate Plan",
-      price: 49,
+      title: "Commander Class",
+      price: null,
       highlight: false,
+      icon: 'lucide:shield-check',
+      cta: { text: 'Konsultasi dengan Kami', variant: 'contact' },
       benefits: [
-         "All features of the Essential Plan",
-         "Comprehensive AI diagnostics",
-         "Advanced health monitoring and tracking",
-         "Emergency assistance and support",
-         "Customized wellness programs",
+         "Custom Module",
+         "White Label Option",
+         "Integrasi Pihak Ketiga"
       ],
    },
 ]
+
+const formatPrice = (n: number | null) => {
+  if (!n) return null
+  return new Intl.NumberFormat('id-ID').format(n)
+}
 </script>
 
 <template>
-   <section class="bg-white py-24">
-      <div class="container mx-auto px-6">
+   <section id="pricing" class="bg-white py-24">
+      <div class="container mx-auto px-6 text-gray-900">
          <div class="mx-auto max-w-7xl">
             <div class="mb-16 text-center">
                <p class="mb-6 text-sm font-semibold text-emerald-500">
-                  Pricing Plans
+                  Pricing
                </p>
                <h3
                   class="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl"
                >
-                  Choose the Plan That Perfectly
-                  <span class="text-gray-400">Match Yours.</span>
+                  Fuel for The <span class="text-emerald-500">Missions</span>
                </h3>
                <p class="mx-auto mb-12 max-w-3xl text-lg text-gray-500">
-                  Explore our range of pricing plans designed to cater to
-                  different healthcare requirements and budgets.
+                  Pilih Armada untuk Misi Anda.
                </p>
 
-               <!-- <div
-                  class="mb-16 inline-flex items-center rounded-full bg-gray-100 p-1.5"
-               >
-                  <button
-                     class="rounded-full bg-white px-8 py-3 font-semibold text-gray-900 shadow-sm transition"
-                  >
-                     Monthly Billing
-                  </button>
-                  <button
-                     class="rounded-full px-8 py-3 font-semibold text-gray-600 transition hover:text-gray-900"
-                  >
-                     Annual Billing
-                  </button>
-               </div> -->
             </div>
 
             <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -79,19 +76,18 @@ const plans = [
                      class="relative scale-105 transform rounded-3xl border-2 border-emerald-300 bg-linear-to-br from-emerald-50 to-teal-50 p-8 shadow-xl flex flex-col gap-8"
                   >
                      <div class="text-center">
-                        <div
-                           class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-emerald-600"
-                        >
-                           <span class="text-3xl">☂️</span>
+                        <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-emerald-600">
+                           <Icon :name="plan.icon" class="text-2xl text-white" aria-hidden="true" />
                         </div>
                         <h4 class="mb-4 text-xl font-semibold text-gray-900">
                            {{ plan.title }}
                         </h4>
+                        
                         <div class="mb-2 flex items-end justify-center gap-1">
-                           <span class="text-5xl font-bold text-gray-900">
-                              ${{ plan.price }}
-                           </span>
-                           <span class="mb-2 text-gray-600">/month</span>
+                           <template v-if="plan.price">
+                             <span class="text-4xl font-bold text-gray-900 sm:text-xl">Rp.{{ formatPrice(plan.price) }}</span>
+                             <span class="mb-2 text-gray-600">/bulan</span>
+                           </template>
                         </div>
                      </div>
 
@@ -127,7 +123,7 @@ const plans = [
                         <button
                            class="w-full rounded-full bg-linear-to-r from-emerald-400 to-emerald-600 py-3.5 font-semibold text-white shadow-lg transition hover:from-emerald-500 hover:to-emerald-700"
                         >
-                           Get Started
+                           {{ plan.cta?.text ?? 'Pilih Paket' }}
                         </button>
                      </div>
                   </div>
@@ -139,16 +135,16 @@ const plans = [
                         <div
                            class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-100"
                         >
-                           <span class="text-3xl">🎨</span>
+                           <Icon :name="plan.icon" class="text-2xl text-emerald-600" aria-hidden="true" />
                         </div>
                         <h4 class="mb-4 text-xl font-semibold text-gray-900">
                            {{ plan.title }}
                         </h4>
                         <div class="mb-2 flex items-end justify-center gap-1">
-                           <span class="text-5xl font-bold text-gray-900">
-                              ${{ plan.price }}
-                           </span>
-                           <span class="mb-2 text-gray-500">/month</span>
+                           <template v-if="plan.price">
+                             <span class="text-3xl font-bold text-gray-900 sm:text-xl">Rp.{{ formatPrice(plan.price) }}</span>
+                             <span class="mb-2 text-gray-500">/bulan</span>
+                           </template>
                         </div>
                      </div>
 
@@ -181,9 +177,21 @@ const plans = [
                      </div>
                      <div class="flex flex-1 flex-col justify-end">
                         <button
+                           v-if="plan.cta?.variant === 'outline'"
                            class="w-full rounded-full border-2 border-gray-900 py-3.5 font-semibold text-gray-900 transition hover:bg-gray-900 hover:text-white"
                         >
-                           Choose Plan
+                           {{ plan.cta?.text }}
+                        </button>
+
+                        <button
+                           v-else-if="plan.cta?.variant === 'contact'"
+                           class="w-full rounded-full border-2  border-gray-900 py-3.5 font-semibold text-gray-900 transition hover:bg-gray-900 hover:text-white"
+                        >
+                           {{ plan.cta?.text }}
+                        </button>
+
+                        <button v-else class="w-full rounded-full border-2 border-gray-900 py-3.5 font-semibold text-gray-900 transition hover:bg-gray-900 hover:text-white">
+                           {{ plan.cta?.text ?? 'Konsultasi dengan Kami' }}
                         </button>
                      </div>
                   </div>
