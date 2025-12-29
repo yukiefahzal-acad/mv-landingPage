@@ -15,6 +15,7 @@
 
 </script>
 
+=======
 <template>
    <!-- <UApp> -->
       <div>
@@ -30,6 +31,11 @@
             <!-- <AppScroll /> -->
             <!-- <AppInsight /> -->
             <AppFeatures />
+            <AppAbout />
+            <AppScroll />
+            <!-- <AppInsight /> -->
+            <AppFeatures />
+            <LayoutMFooter />
             <AppSolutions />
             <AppPricing />
             <!-- <AppContact /> -->
