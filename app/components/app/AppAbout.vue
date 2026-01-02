@@ -14,7 +14,7 @@
                      The Mothership
                   </h3>
                </div>
-               <div class="gap-12 mx-3 mb-6">
+               <div class="gap-12 mx-3 mb-15">
                   <div class="justify-center row-span-3 gap-3 mb-6 sm:flex">
                      <div class="flex flex-col items-center mx-auto">
                         <img
@@ -32,16 +32,16 @@
                   </div>
                   <div class="items-center gap-3">
                      <p class="max-w-3xl mx-auto mb-8 text-lg leading-relaxed text-gray-500 text-center">
-                        <strong>Medic<span class="text-emerald-500">Verse</span></strong> 
-                        lahir dari laboratorium inovasi <strong>Techindo</strong>. 
+                        <strong class="text-emerald-500">Medic<span class="text-gray-600">Verse</span></strong> 
+                        lahir dari laboratorium inovasi <strong class="text-gray-600">Techindo</strong>. 
                         Kami bukan sekadar vendor software, kami adalah arsitek 
                         digital yang memegang teguh tiga pilar utama dalam setiap 
                         kode yang kami tulis:
                      </p>
                      <div class="col-span-2 row-span-2">
-                        <div class="grid grid-cols-3 gap-8 sm:flex-row">
+                        <div class="grid grid-cols-1 gap-8 sm:flex-row md:grid-cols-3">
                            <div
-                              class="max-h-10 flex flex-col items-center rounded-3xl p-8 text-center hover:scale-105 transition-transform duration-300"
+                              class="flex flex-col items-center rounded-3xl p-8 text-center hover:scale-105 transition-transform duration-300"
                            >
                               <span class="mb-3 text-md font-bold text-emerald-500">
                                  <Icon name="lucide:rocket" class="px-6 py-6" />
@@ -53,7 +53,7 @@
                               </p>
                            </div>
                            <div
-                              class="max-h-20 flex flex-col items-center rounded-3xl p-8 text-center hover:scale-105 transition-transform duration-300"
+                              class="flex flex-col items-center rounded-3xl p-8 text-center hover:scale-105 transition-transform duration-300"
                            >
                               <span class="mb-3 text-md font-bold text-emerald-500">
                                  <Icon name="lucide:bot" class="px-6 py-6" />
@@ -65,7 +65,7 @@
                               </p>
                            </div>
                            <div
-                              class="max-h-20 flex flex-col items-center rounded-3xl p-8 text-center hover:scale-105 transition-transform duration-300"
+                              class="flex flex-col items-center rounded-3xl p-8 text-center hover:scale-105 transition-transform duration-300"
                            >
                               <span class="mb-3 text-md font-bold text-emerald-500">
                                  <Icon name="lucide:sparkles" class="px-6 py-6" />

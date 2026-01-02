@@ -50,154 +50,98 @@ const formatPrice = (n: number | null) => {
 }
 </script>
 
-<template>
+<template v-for="plan in plans">
    <section id="pricing" class="bg-white py-24">
       <div class="container mx-auto px-6 text-gray-900">
          <div class="mx-auto max-w-7xl">
             <div class="mb-16 text-center">
-               <p class="mb-6 text-sm font-semibold text-emerald-500">
-                  Pricing
-               </p>
-               <h3
-                  class="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl"
-               >
+               <p class="mb-6 text-sm font-semibold text-emerald-500 uppercase tracking-widest">Pricing</p>
+               <h3 class="mb-6 text-4xl leading-tight font-black md:text-5xl lg:text-6xl tracking-tighter">
                   Fuel for The <span class="text-emerald-500">Missions</span>
                </h3>
-               <p class="mx-auto mb-12 max-w-3xl text-lg text-gray-500">
-                  Pilih Armada untuk Misi Anda.
-               </p>
-
+               <p class="mx-auto mb-12 max-w-3xl text-lg text-gray-500">Pilih Armada untuk Misi Anda.</p>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-8 items-stretch">
                <template v-for="plan in plans">
+                  
                   <div
                      v-if="plan.highlight"
-                     class="relative scale-105 transform rounded-3xl border-2 border-emerald-300 bg-linear-to-br from-emerald-50 to-teal-50 p-8 shadow-xl flex flex-col gap-8"
+                     class="order-1 lg:order-2 relative z-10 transform rounded-[2.5rem] border-2 border-emerald-300 bg-linear-to-br from-emerald-50 to-teal-50 p-8 shadow-2xl flex flex-col gap-8 lg:scale-105"
                   >
+                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-emerald-500 px-4 py-1 text-xs font-bold text-white uppercase tracking-wider">
+                        Di rekomendasikan
+                     </div>
+
                      <div class="text-center">
-                        <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-emerald-600">
-                           <Icon :name="plan.icon" class="text-2xl text-white" aria-hidden="true" />
+                        <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-emerald-600 shadow-lg shadow-emerald-200">
+                           <Icon :name="plan.icon" class="text-3xl text-white" />
                         </div>
-                        <h4 class="mb-4 text-xl font-semibold text-gray-900">
-                           {{ plan.title }}
-                        </h4>
+                        <h4 class="mb-2 text-2xl font-bold text-gray-900">{{ plan.title }}</h4>
                         
-                        <div class="mb-2 flex items-end justify-center gap-1">
+                        <div class="mb-2 flex items-baseline justify-center gap-1">
                            <template v-if="plan.price">
-                             <span class="text-4xl font-bold text-gray-900 sm:text-xl">Rp.{{ formatPrice(plan.price) }}</span>
-                             <span class="mb-2 text-gray-600">/bulan</span>
+                             <span class="text-4xl font-black text-gray-900">Rp{{ formatPrice(plan.price) }}</span>
+                             <span class="text-gray-600 font-medium">/bulan</span>
+                           </template>
+                           <template v-else>
+                             <span class="text-3xl font-black text-gray-900">Custom</span>
                            </template>
                         </div>
                      </div>
 
                      <div class="space-y-4">
-                        <div
-                           v-for="benefit in plan.benefits"
-                           class="flex items-start gap-3"
-                        >
-                           <div
-                              class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-200"
-                           >
-                              <svg
-                                 class="h-3 w-3 text-emerald-600"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke="currentColor"
-                              >
-                                 <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    :strokeWidth="3"
-                                    d="M5 13l4 4L19 7"
-                                 />
-                              </svg>
-                           </div>
-                           <p class="text-gray-700">
-                              {{ benefit }}
-                           </p>
+                        <div v-for="benefit in plan.benefits" class="flex items-start gap-3">
+                           <Icon name="lucide:check-circle-2" class="mt-1 h-5 w-5 shrink-0 text-emerald-500" />
+                           <p class="text-gray-700 leading-snug">{{ benefit }}</p>
                         </div>
                      </div>
 
-                     <div class="flex-1 flex flex-col justify-end">
-                        <button
-                           class="w-full rounded-full bg-linear-to-r from-emerald-400 to-emerald-600 py-3.5 font-semibold text-white shadow-lg transition hover:from-emerald-500 hover:to-emerald-700"
-                        >
-                           {{ plan.cta?.text ?? 'Pilih Paket' }}
+                     <div class="mt-auto pt-4">
+                        <button class="w-full rounded-2xl bg-linear-to-r from-emerald-500 to-emerald-700 py-4 font-bold text-white shadow-xl shadow-emerald-200 transition-all hover:scale-[1.02] active:scale-95">
+                           {{ plan.cta?.text }}
                         </button>
                      </div>
                   </div>
+
                   <div
-                     v-else
-                     class="flex flex-col gap-8 rounded-3xl border-2 border-gray-100 bg-white p-8 transition hover:border-emerald-200"
+                     v-else :class="plan.title === 'Scout Class' ? 'order-2 lg:order-1' : 'order-3 lg:order-3'"
+                     class="flex flex-col gap-8 rounded-[2.5rem] border-2 border-gray-100 bg-white p-8 transition-all hover:border-emerald-200 hover:shadow-xl group"
                   >
                      <div class="text-center">
-                        <div
-                           class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-100"
-                        >
-                           <Icon :name="plan.icon" class="text-2xl text-emerald-600" aria-hidden="true" />
+                        <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-50 group-hover:bg-emerald-50 transition-colors">
+                           <Icon :name="plan.icon" class="text-3xl text-gray-400 group-hover:text-emerald-500 transition-colors" />
                         </div>
-                        <h4 class="mb-4 text-xl font-semibold text-gray-900">
-                           {{ plan.title }}
-                        </h4>
-                        <div class="mb-2 flex items-end justify-center gap-1">
+                        <h4 class="mb-2 text-2xl font-bold text-gray-900">{{ plan.title }}</h4>
+                        <div class="mb-2 flex items-baseline justify-center gap-1">
                            <template v-if="plan.price">
-                             <span class="text-3xl font-bold text-gray-900 sm:text-xl">Rp.{{ formatPrice(plan.price) }}</span>
-                             <span class="mb-2 text-gray-500">/bulan</span>
+                             <span class="text-4xl font-black text-gray-900">Rp{{ formatPrice(plan.price) }}</span>
+                             <span class="text-gray-500 font-medium">/bulan</span>
+                           </template>
+                           <template v-else>
+                             <span class="text-3xl font-black text-gray-900 font-black">Hubungi Kami</span>
                            </template>
                         </div>
                      </div>
 
                      <div class="space-y-4">
-                        <div
-                           v-for="benefit in plan.benefits"
-                           class="flex items-start gap-3"
-                        >
-                           <div
-                              class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100"
-                           >
-                              <svg
-                                 class="h-3 w-3 text-emerald-500"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke="currentColor"
-                              >
-                                 <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    :strokeWidth="3"
-                                    d="M5 13l4 4L19 7"
-                                 />
-                              </svg>
-                           </div>
-                           <p class="text-gray-700">
-                              {{ benefit }}
-                           </p>
+                        <div v-for="benefit in plan.benefits" class="flex items-start gap-3">
+                           <Icon name="lucide:check-circle-2" class="mt-1 h-5 w-5 shrink-0 text-gray-300 group-hover:text-emerald-400" />
+                           <p class="text-gray-600 leading-snug">{{ benefit }}</p>
                         </div>
                      </div>
-                     <div class="flex flex-1 flex-col justify-end">
-                        <button
-                           v-if="plan.cta?.variant === 'outline'"
-                           class="w-full rounded-full border-2 border-gray-900 py-3.5 font-semibold text-gray-900 transition hover:bg-gray-900 hover:text-white"
-                        >
-                           {{ plan.cta?.text }}
-                        </button>
 
-                        <button
-                           v-else-if="plan.cta?.variant === 'contact'"
-                           class="w-full rounded-full border-2  border-gray-900 py-3.5 font-semibold text-gray-900 transition hover:bg-gray-900 hover:text-white"
-                        >
+                     <div class="mt-auto pt-4">
+                        <button class="w-full rounded-2xl border-2 border-gray-900 py-4 font-bold text-gray-900 transition-all hover:bg-gray-900 hover:text-white active:scale-95">
                            {{ plan.cta?.text }}
-                        </button>
-
-                        <button v-else class="w-full rounded-full border-2 border-gray-900 py-3.5 font-semibold text-gray-900 transition hover:bg-gray-900 hover:text-white">
-                           {{ plan.cta?.text ?? 'Konsultasi dengan Kami' }}
                         </button>
                      </div>
                   </div>
+
                </template>
             </div>
          </div>
       </div>
    </section>
 </template>
+

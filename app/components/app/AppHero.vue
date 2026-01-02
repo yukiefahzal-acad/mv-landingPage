@@ -1,98 +1,45 @@
 <script setup lang="ts">
-   import { onMounted } from 'vue';
-   import gsap from 'gsap';
-   import { ScrollTrigger } from 'gsap/ScrollTrigger';
    
-   gsap.registerPlugin(ScrollTrigger);
-
-   onMounted(() => {
-      // Collapse `#home` when the next section (`#about`) scrolls into view (scrubbed)
-      gsap.set('#home', { transformOrigin: 'top center', scaleY: 1 });
-      gsap.to('#home', {
-         scaleY: 0,
-         ease: 'none',
-         scrollTrigger: {
-            trigger: '#about',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true,
-            // markers: true, // enable while tuning
-         }
-      });
-
-      // Scale down the hero blob while scrolling into the next section
-      gsap.set('.gambar', { scale: 1 });
-      gsap.to('.gambar', {
-         scale: 0,
-         ease: 'none',
-         scrollTrigger: {
-            trigger: '#about',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true,
-            // markers: true,
-         }
-      });
-
-
-
-
-   })
-
 </script>
 
 
 
 <template>
-   <div id="home" class="relative mx-auto max-w-7xl h-screen">
-      <!-- SECTION: Blob -->
-      <div class="absolute inset-0 z-0 pointer-events-none flex items-center justify-center -translate-y-[25%] gambar">
-         <img src="../../assets/img/logo/herosection.svg" alt="Hero blob" class="bg-bumi h-screen w-screen md:w-screen opacity-40 blur-sm"/>
-          <!-- <video class="w-screen h-screen" autoplay>
-            <source src="../../assets/vid/move (1).mp4" type="video/mp4" class="video">
-          </video> -->
-      </div>
-
-      
-
-      <!-- <div class="box gradient-green green"></div>
-      <div class="box gradient-purple purple"></div>
-      <div class="box gradient-blue blue"></div> -->
-
-
-      <!-- !SECTION: Blob -->
-
-      <div class="absolute inset-0">
-         <div class="relative z-10 text-center -translate-y-[-25%] antialiased">
-            <h1
-               class="mb-6 leading-tight font-black tracking-wide text-gray-900 md:text-3xl lg:text-7xl sm:text-lg tagline"
-            >
-                The Command Center for Your Entire Medical Universe.
-            </h1>
-            <div class="flex items-center justify-center pb-10">
-               <div class="max-w-xl text-center">
-                  <p class="leading-relaxed text-gray-600">
-                     Ubah Kesibukan Menjadi Keteraturan. 
-                     <strong>Medic<span class="text-emerald-500">Verse</span></strong> 
-                     menyelaraskan pasien, dokter, dan operasional klinik Anda dalam satu orbit yang sempurna. 
-                     Generasi baru Sistem Manajemen Klinik telah hadir.
-                  </p>
-               </div>
-            </div>
-   
-            <button
-               class="transform rounded-full bg-linear-to-r from-emerald-400 to-emerald-500 px-8 py-4 text-lg font-medium text-white shadow-xl transition hover:scale-105 hover:from-emerald-500 hover:to-emerald-600 hover:shadow-2xl"
-            >
-               <div
-                  class="flex font-bold h-8 items-center"
-               >
-                  <Icon name="lucide:rocket" />
-                  <p class="ml-2">
-                     Uji Coba Penerbangan 
-                  </p> 
-               </div>
-            </button>
+   <div class="bg-white overflow-hidden">
+      <div id="home" class="relative h-screen w-screen flex items-center justify-center -translate-y-[10%]">
+         
+         <div class="absolute inset-0 z-0 pointer-events-none flex items-center justify-center px-10 md:px-40 py-20 md:py-60">
+            <img src="../../assets/img/logo/earth.svg" alt="Hero blob" class="bg-bumi h-full w-full object-contain opacity-40 z-30"/>
          </div>
+      
+         <div class="relative z-10 flex items-center justify-center w-full h-full">
+            <div class="text-center antialiased px-6 max-w-5xl"> 
+               <h1 class="mb-6 leading-tight font-black tracking-tight text-gray-900 text-4xl md:text-6xl lg:text-7xl">
+                  The Command Center for Your Entire Medical Universe.
+               </h1>
+               
+               <div class="flex items-center justify-center pb-10">
+                  <div class="max-w-2xl text-center">
+                     <p class="leading-relaxed text-gray-600 text-base md:text-lg">
+                        Ubah Kesibukan Menjadi Keteraturan. 
+                        <span class="bg-gray-900 text-emerald-500 rounded px-2 py-0.5 inline-block my-1">
+                           <strong>Medic<span class="text-white">Verse</span></strong> 
+                        </span>
+                        menyelaraskan pasien, dokter, dan operasional klinik Anda dalam satu orbit yang sempurna. 
+                        Generasi baru Sistem Manajemen Klinik telah hadir.
+                     </p>
+                  </div>
+               </div>
+      
+               <button class="transform rounded-full bg-gradient-to-r from-emerald-400 to-emerald-500 px-10 py-4 text-lg font-bold text-white shadow-xl transition hover:scale-105 hover:from-emerald-500 hover:to-emerald-600 hover:shadow-2xl active:scale-95">
+                  <div class="flex items-center justify-center h-8">
+                     <Icon name="lucide:rocket" size="24" />
+                     <span class="ml-3">Uji Coba Penerbangan</span> 
+                  </div>
+               </button>
+            </div>
+         </div>
+
       </div>
    </div>
 </template>

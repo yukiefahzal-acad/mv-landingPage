@@ -5,3 +5,30 @@
     font-family: "DM Sans", sans-serif, system-ui;
 }
 
+#home {
+  position: sticky; /* Menjaga hero tetap di tempat saat di-scroll */
+  top: 0;
+  z-index: 1;      /* Layer bawah */
+}
+
+#about {
+  position: relative;
+  z-index: 2;      /* Layer atas, akan menutupi #home */
+  min-height: 100vh;
+}
+
+/* Pastikan teks tidak keluar layar secara horizontal (mencegah horizontal scroll) */
+#pFooter {
+  contain: paint;
+}
+
+#pFooter h1 {
+  /* Mengoptimalkan performa browser saat animasi transform/opacity */
+  will-change: transform, opacity;
+  white-space: nowrap;
+}
+
+/* Memastikan transisi antar section halus tanpa celah pixel */
+.footer-wrapper {
+  margin-top: -1px;
+}

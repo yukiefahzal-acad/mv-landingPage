@@ -1,10 +1,31 @@
 <script setup lang="ts">
-   
+   import gsap from 'gsap';
+   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+   gsap.registerPlugin(ScrollTrigger);
+
+   onMounted(() => {
+   gsap.fromTo("#mFooter", 
+      { yPercent:-100, autoAlpha: 0 },
+      {
+         yPercent: 0,
+         autoAlpha: 1,
+         scrollTrigger: {
+         trigger: "#Footer",
+         start: "bottom bottom", 
+         endTrigger: "html",
+         end: "bottom bottom",
+         scrub: 1,
+         }
+      }
+   );
+   });
 </script>
 
 <template>
-   <footer class="bg-gray-900 pt-16 pb-8 text-white">
+  <div class="relative w-full overflow-hidden bg-gray-900">
+    
+    <footer id="Footer" class="relative z-20 bg-gray-900 pt-16 pb-8 text-white">
       <div class="container mx-auto px-6">
          <div class="mx-auto max-w-7xl">
 
@@ -13,7 +34,7 @@
                   <p class="text-emerald-400 font-semibold">The Final Call</p>
                   <h3 class="text-3xl font-bold">T-Minus Menuju Efisiensi Total</h3>
                   <p class="text-gray-300">
-                    Jangan biarkan klinik Anda tertinggal. Bergabunglah dengan klinik modern yang telah menggunakan <strong>Medic<span class="text-emerald-500">Verse</span></strong>.
+                    Jangan biarkan klinik Anda tertinggal. Bergabunglah dengan klinik modern yang telah menggunakan <strong class="text-emerald-500">Medic<span class="text-gray-300">Verse</span></strong>.
                   </p>
 
                   <button class="mt-2 inline-block w-full md:w-auto rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white shadow-lg hover:bg-emerald-600">
@@ -59,7 +80,7 @@
                   <div class="space-y-3 text-gray-300">
                      <div class="flex items-center gap-3">
                         <Icon name="lucide:map-pin" class="text-emerald-400" />
-                        <span>Cluster Asyri Green 10 Mustika Jaya - Kota Bekasi</span>
+                        <a href="https://maps.app.goo.gl/6umr9WH99zTMdRuD7" class="hover:text-emerald-400">Cluster Asyri Green 10 Mustika Jaya - Kota Bekasi</a>
                      </div>
                      <div class="flex items-center gap-3">
                         <Icon name="lucide:mail" class="text-emerald-400" />
@@ -87,7 +108,14 @@
             </div>
          </div>
       </div>
-   </footer>
+    </footer>
+
+    <section class="sticky bottom-0 left-0 w-full h-[30vh] z-10 items-center justify-center bg-gray-900 hidden md:flex">
+      <h1 class="font-black uppercase tracking-tighter text-[18vw] leading-[0.7] select-none text-emerald-500">
+        <span id="mFooter" class="inline-block">
+           medic<span class="text-white">Verse</span>
+        </span>
+      </h1>
+    </section>
+  </div>
 </template>
-
-
